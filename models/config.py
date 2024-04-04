@@ -8,3 +8,4 @@ engine = create_engine('postgresql://gleb:root@vpn.glebtests.ru/postgres',echo=F
 metadata = MetaData()
 metadata.reflect(bind=engine)
 Session = sessionmaker(bind=engine)
+
