@@ -13,4 +13,3 @@ def insert_into_table(table_name, **kwargs):
         session.commit()
     
 
-insert_into_table(table_name='category',id=66,name='shrek')
