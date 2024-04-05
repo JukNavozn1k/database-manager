@@ -16,8 +16,17 @@ class GoodsTable(View):
        return HttpResponse('')
     def post(self,request):
        good = forms.GoodForm(request.POST)
-       good.save()
-       return self.get(request)
+       if good.is_valid():
+            good.save()
+            return self.get(request)
+       else: return HttpResponse(f'''
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Ошибка!</h4>
+  <p>Неверный запрос</p>
+  <hr>
+  <p class="mb-0">{good.errors}</p>
+</div>
+''')
 
 
 class GoodsManager(View):
