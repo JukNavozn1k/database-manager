@@ -55,7 +55,7 @@ ROOT_URLCONF = 'db_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['db_app/db_manager/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
