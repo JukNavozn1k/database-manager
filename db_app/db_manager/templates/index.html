@@ -19,7 +19,12 @@
             
                 {{good_form}}
                 <div class="py-3">
-                    <button type="button" class="btn btn-outline-success">⭐ Добавить</button>
+                    <button type="button" class="btn btn-outline-success"
+                    hx-post="/goods/add/"
+                    hx-target="#goods_table"
+                    hx-swap="innerHTML"
+                    hx-trigger="click"
+                    >⭐ Добавить</button>
                     <button type="button" class="btn btn-outline-primary" 
                     hx-get="/goods/refresh/"
                     hx-target="#goods_table"

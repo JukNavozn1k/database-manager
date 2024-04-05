@@ -14,6 +14,10 @@ class GoodsTable(View):
        good = models.Good.objects.get(id=id)
        good.delete()
        return HttpResponse('')
+    def post(self,request):
+       good = forms.GoodForm(request.POST)
+       good.save()
+       return self.get(request)
 
 
 class GoodsManager(View):
