@@ -19,4 +19,5 @@ from . import views
 urlpatterns = [
     path('',views.GoodsManager.as_view()),
     path('goods/refresh/',views.GoodsTable.as_view()),
+    path('goods/delete/<int:id>/',views.GoodsTable.as_view()),
 ]
