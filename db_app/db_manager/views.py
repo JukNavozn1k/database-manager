@@ -8,7 +8,10 @@ from . import forms
 class GoodsTable(View):
     def get(self,request):
        goods = models.Good.objects.all()
-       context = {'goods':goods}
+       fields = [field.verbose_name for field in models.Good._meta.get_fields() if field.name != 'id']
+    
+      
+       context = {'fields':fields,'goods':goods}
        return render(request,'goods_table.html',context=context)
     def delete(self,request,id):
        good = models.Good.objects.get(id=id)
@@ -22,7 +25,7 @@ class GoodsTable(View):
        else: return HttpResponse(f'''
 <div class="alert alert-danger" role="alert">
   <h4 class="alert-heading">Ошибка!</h4>
-  <p>Неверный запрос</p>
+  <p>Описание ошибки</p>
   <hr>
   <p class="mb-0">{good.errors}</p>
 </div>
