@@ -6,7 +6,7 @@ from models.config import *
 class TableApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("DB Manager")
+        self.root.title("Товарный помощник")
         
         
 
@@ -32,14 +32,11 @@ class TableApp:
             self.entries.append(entry)
        
          # CRUD Buttons
-        self.insert_btn = tk.Button(root, text="Insert", command=self.submit_data)
-        self.insert_btn.grid(row=5, columnspan=len(self.labels), padx=1, pady=5)
+        self.insert_btn = tk.Button(root, text="Добавить/обновить запись", command=None)
+        self.insert_btn.grid(row=5, columnspan=len(self.labels), padx=5, pady=5)
 
-        self.upd_btn = tk.Button(root, text="Update", command=None)
-        self.upd_btn.grid(row=5,column=1, columnspan=len(self.labels), padx=1, pady=5)
-
-        self.response_label = tk.Label(root, text="Response: ")
-        self.response_label.grid(row=5, column=2, columnspan=len(self.labels), padx=0, pady=5)
+        self.upd_btn = tk.Button(root, text="Удалить запись", command=None)
+        self.upd_btn.grid(row=5,column=1, columnspan=len(self.labels), padx=5, pady=5)
 
     def submit_data(self):
         data = [entry.get() for entry in self.entries]
