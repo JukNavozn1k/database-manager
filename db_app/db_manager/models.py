@@ -9,8 +9,6 @@ class PositiveFloatValidator(MinValueValidator):
 
 class Category(models.Model):
       name = models.CharField(max_length=128,verbose_name='Название')
-      description = models.CharField(max_length=1024,verbose_name='Описание')
-      
       def __str__(self) -> str:
            return self.name
 # Create your models here.
