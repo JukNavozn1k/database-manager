@@ -6,8 +6,6 @@ from django.views import View
 from . import models
 from . import forms
 
-from django.db.models import Q
-
 '''
     Poor code structure
     Very easy to add new endpoints, which can be convenient for asynchronous approach
