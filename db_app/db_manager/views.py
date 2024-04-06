@@ -10,7 +10,7 @@ class GoodsTable(View):
        goods = models.Good.objects.all()
        fields = [field.verbose_name for field in models.Good._meta.get_fields() if field.name != 'id']
     
-      
+       print(request.GET) 
        context = {'fields':fields,'goods':goods}
        return render(request,'goods_table.html',context=context)
     def delete(self,request,id):
