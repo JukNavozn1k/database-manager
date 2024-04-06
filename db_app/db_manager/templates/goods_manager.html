@@ -13,7 +13,12 @@
            <h4>Панель управления</h4>
             {{good_form}}
             <div class="py-3">
-                <button type="button" class="btn btn-outline-primary">🔎</button>
+                <button type="button" class="btn btn-outline-primary"
+                        hx-post="/goods/search/"
+                        hx-target="#goods_table"
+                        hx-swap="innerHTML"
+                        hx-trigger="click"      
+                >🔎</button>
                 <button type="button" class="btn btn-outline-success"
                 hx-post="/goods/add/"
                 hx-target="#goods_table"
