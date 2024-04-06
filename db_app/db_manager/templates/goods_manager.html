@@ -13,20 +13,20 @@
            <h4>Панель управления</h4>
             {{good_form}}
             <div class="py-3">
-                <button type="button" class="btn btn-outline-primary">🔎 Найти</button>
+                <button type="button" class="btn btn-outline-primary">🔎</button>
                 <button type="button" class="btn btn-outline-success"
                 hx-post="/goods/add/"
                 hx-target="#goods_table"
                 hx-swap="innerHTML"
                 hx-trigger="click"
-                >⭐ Добавить</button>
+                >⭐</button>
 
                 <button type="button" class="btn btn-outline-primary"
                 hx-get="/goods/refresh/"
                 hx-target="#goods_table"
                 hx-swap="innerHTML"
                 hx-trigger="load, click"
-                >🔄 Обновить</button>
+                >🔄</button>
             </div>
       </div>
     </form>
