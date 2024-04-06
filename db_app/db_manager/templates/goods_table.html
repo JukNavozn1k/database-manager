@@ -1,0 +1,27 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        {% for field in fields %}
+        <th scope="col">{{field}}</th>
+        {% endfor %}
+        <!-- <th scope="col">Название</th>
+        <th scope="col">Цена</th>
+        <th scope="col">Категория</th> -->
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for good in goods %}
+      <tr id="good-{{good.id}}">
+        <td>{{good.name}}</td>
+        <td>{{good.price}} ₽ </td>
+        <td>{{good.category}}</td>
+        <td> <button type="button" class="btn btn-outline-danger btn-sm"
+          hx-delete="/goods/delete/{{good.id}}"
+          hx-swap="outerHTML"
+          hx-target="#good-{{good.id}}"
+          >🗑️ Удалить</button></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
