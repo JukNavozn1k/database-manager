@@ -4,9 +4,6 @@
         {% for field in fields %}
         <th scope="col">{{field}}</th>
         {% endfor %}
-        <!-- <th scope="col">Название</th>
-        <th scope="col">Цена</th>
-        <th scope="col">Категория</th> -->
         <th scope="col"></th>
       </tr>
     </thead>
@@ -21,6 +18,7 @@
           hx-swap="outerHTML"
           hx-target="#good-{{good.id}}"
           >🗑️ Удалить</button></td>
+         
       </tr>
       {% endfor %}
     </tbody>
