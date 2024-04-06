@@ -1,4 +1,4 @@
-<table class="table table-hover">
+<table class="table table-hover table-striped">
     <thead>
       <tr>
         {% for field in fields %}
@@ -9,14 +9,14 @@
     </thead>
     <tbody>
       {% for good in goods %}
-      <tr id="good-{{good.id}}">
+      <tr>
         <td>{{good.name}}</td>
         <td>{{good.price}} ₽ </td>
         <td>{{good.category}}</td>
         <td> <button type="button" class="btn btn-outline-danger btn-sm"
           hx-delete="/goods/delete/{{good.id}}"
           hx-swap="outerHTML"
-          hx-target="#good-{{good.id}}"
+          hx-target="closest tr"
           >🗑️ Удалить</button></td>
          
       </tr>

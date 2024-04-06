@@ -25,7 +25,6 @@ class GoodsTable(View):
        else: return HttpResponse(f'''
 <div class="alert alert-danger" role="alert">
   <h4 class="alert-heading">Ошибка!</h4>
-  <p>Описание ошибки</p>
   <hr>
   <p class="mb-0">{good.errors}</p>
 </div>
