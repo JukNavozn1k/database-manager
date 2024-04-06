@@ -32,9 +32,13 @@ class GoodsTable(View):
 ''')
 
 
+class Home(View):
+    def get(self,request):   
+        return render(request,'index.html')
+
 class GoodsManager(View):
     def get(self,request):   
         good_form = forms.GoodForm()
         context = {'good_form':good_form}
-        return render(request,'index.html',context=context)
+        return render(request,'goods_manager.html',context=context)
 # Create your views here.

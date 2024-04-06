@@ -17,6 +17,8 @@ Including another URLconf
 from django.urls import path
 from . import views
 urlpatterns = [
+    path('',views.Home.as_view()),
+    path('category/',views.Home.as_view()),
     path('goods/',views.GoodsManager.as_view()),
     path('goods/refresh/',views.GoodsTable.as_view()),
     path('goods/add/',views.GoodsTable.as_view()),
