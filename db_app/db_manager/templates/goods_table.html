@@ -10,8 +10,8 @@
     <tbody>
       {% for good in goods %}
       <tr>
-        <td>{{good.name}}</td>
-        <td>{{good.price}} ₽ </td>
+        <td contenteditable='true'>{{good.name}}</td>
+        <td contenteditable='true'>{{good.price}}</td>
         <td>{{good.category}}</td>
         <td> <button type="button" class="btn btn-outline-danger btn-sm"
           hx-delete="/goods/delete/{{good.id}}"
