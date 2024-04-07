@@ -31,7 +31,8 @@ class AsyncTable:
    
    
     def get_manager(self,request):
-        return render(request,'manager.html')
+        context = {'tablename' : self.model._meta.verbose_name_plural}
+        return render(request,'manager.html',context=context)
 
     def get_form(self,request):
         form = self.form()
