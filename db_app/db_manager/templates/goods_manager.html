@@ -6,7 +6,6 @@
      hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     <h1>Менаджер товаров</h1>
       <div id="table">
-
       </div>  
       <form>
       <div class="form-group">
@@ -14,20 +13,20 @@
             {{good_form}}
             <div class="py-3">
                 <button type="button" class="btn btn-outline-primary btn-lg"
-                        hx-post="/goods/search/"
+                        hx-post="{{request.path}}table/search/"
                         hx-target="#table"
                         hx-swap="innerHTML"
                         hx-trigger="click"      
                 >🔎</button>
                 <button type="button" class="btn btn-outline-success btn-lg"
-                hx-post="/goods/add/"
+                hx-post="{{request.path}}table/add/"
                 hx-target="#table"
                 hx-swap="innerHTML"
                 hx-trigger="click"
                 >⭐</button>
 
                 <button type="button" class="btn btn-outline-primary btn-lg"
-                hx-get="/goods/refresh/"
+                hx-get="{{request.path}}table/"
                 hx-target="#table"
                 hx-swap="innerHTML"
                 hx-trigger="load, click"

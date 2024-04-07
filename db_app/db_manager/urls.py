@@ -20,8 +20,8 @@ urlpatterns = [
     path('',views.Home.as_view()),
     path('category/',views.Home.as_view()),
     path('goods/',views.GoodsManager.as_view()),
-    path('goods/refresh/',views.get_table),
-    path('goods/add/',views.add_record),
-    path('goods/delete/<int:id>/',views.delete_record),
-    path('goods/search/',views.search_table),
+    path('goods/table/',views.get_table),
+    path('goods/table/add/',views.add_record),
+    path('goods/table/delete/<int:id>/',views.delete_record),
+    path('goods/table/search/',views.search_table),
 ]
