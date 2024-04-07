@@ -9,28 +9,23 @@
       </tr>
     </thead>
     <tbody>
-      {% for good in goods %}
+      {% for obj in objects %}
       <tr>
         {% for field in fields %}
-        <td>{{ good|get_attr:field }}</td>
-
+        <td>{{ obj|get_attr:field }}</td>
         {% endfor %}
-        <!-- <td contenteditable='true'>{{good.name}}</td>
-        <td contenteditable='true'>{{good.price}}</td>
-        <td>{{good.category}}</td> -->
         <td> 
           <button type="button" class="btn btn-outline-warning btn-sm"
-          hx-put="/goods/update/{{good.id}}"
+          hx-put="/{{tablename}}/update/{{obj.id}}"
           hx-swap="outerHTML"
           hx-target="closest tr"
           >✏️</button>
           
           <button type="button" class="btn btn-outline-danger btn-sm"
-          hx-delete="/goods/delete/{{good.id}}"
+          hx-delete="/{{tablename}}/delete/{{obj.id}}"
           hx-swap="outerHTML"
           hx-target="closest tr"
-          >🗑️</button></td>
-         
+          >🗑️</button></td>       
       </tr>
       {% endfor %}
     </tbody>

@@ -18,10 +18,6 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path('',views.Home.as_view()),
-    path('category/',views.Home.as_view()),
-    path('goods/',views.GoodsManager.as_view()),
-    path('goods/refresh/',views.get_table),
-    path('goods/add/',views.add_record),
-    path('goods/delete/<int:id>/',views.delete_record),
-    path('goods/search/',views.search_table),
-]
+    path('category/',views.Manager.as_view()),
+    path('goods/',views.Manager.as_view()),
+] + views.GoodsTable.gen_urls() + views.CategoryTable.gen_urls()

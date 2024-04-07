@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<div class="justify-content-center good-table col-xl-12 col-lg-10 col-md-8 col-sm-10 mx-auto text-center form p-4"
+     hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+    <h1>Менаджер</h1>
+      <div id="table">
+      </div>  
+      <form hx-get="{{request.path}}form" hx-swap="innerHTML" hx-trigger="load">
+      
+    </form>
+     
+      
+
+    <!-- Modal -->
+<div class="modal fade" id="delete_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Вы действительно хотите удалить эту запись?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Данное действие будет невозможно отметнить
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+{% endblock %}
