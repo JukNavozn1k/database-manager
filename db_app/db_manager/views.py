@@ -6,9 +6,6 @@ from django.views import View
 from . import models
 from . import forms
 
-from django.db.models.fields.related import RelatedField
-
-
 from django.urls import path
 '''
    Creates table (CRUD)
@@ -28,6 +25,7 @@ class AsyncTable:
                 path(f'{self.tablename}/add/',self.add_record),
                 path(f'{self.tablename}/delete_modal/<int:id>/',self.get_delete_modal),
                 path(f'{self.tablename}/edit_modal/<int:id>/',self.get_edit_modal),
+                path(f'{self.tablename}/edit/',self.edit_record),
                 path(f'{self.tablename}/delete/<int:id>/',self.delete_record),
                 path(f'{self.tablename}/search/',self.search_table),]
         return urls
@@ -52,9 +50,24 @@ class AsyncTable:
         return render(request,'modal_delete.html',context=context)
     
     def get_edit_modal(self,request,id):
-        form = self.form()
+
+        form = self.form(instance=self.model.objects.get(id=id))
         context = {'tablename': self.tablename,'obj_id':id,'form':form}
         return render(request,'modal_edit.html',context=context)
+    
+    def edit_record(self,request):
+        print(request.POST)
+        form = self.form(request.POST)
+        if form.is_valid():
+            form.update()
+            return self.get_table(request)
+        else: return HttpResponse(f'''
+            <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Ошибка!</h4>
+            <hr>
+            <p class="mb-0">{form.errors}</p>
+            </div>
+            ''')
 
 
     def search_table(self,request):
