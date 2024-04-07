@@ -59,7 +59,7 @@ class AsyncTable:
         print(request.POST)
         form = self.form(request.POST)
         if form.is_valid():
-            form.update()
+            form.save()
             return self.get_table(request)
         else: return HttpResponse(f'''
             <div class="alert alert-danger" role="alert">
