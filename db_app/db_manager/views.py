@@ -6,6 +6,9 @@ from django.views import View
 from . import models
 from . import forms
 
+from django.db.models.fields.related import RelatedField
+
+
 from django.urls import path
 '''
    Creates table (CRUD)
@@ -40,10 +43,11 @@ class AsyncTable:
 
     def get_table(self,request):
         objects = self.model.objects.all()
-        fields = [field.name for field in self.model._meta.get_fields() if field.name != 'id']
-        # fields_verbose = [field.verbose_name for field in self.model._meta.get_fields() if field.name != 'id']
-        print(type(objects[0]))
-        context = {'fields': fields,'fields_verbose':fields,'objects':objects,'tablename':self.tablename}
+
+        fields = [field.name for field in self.model._meta.get_fields() if field.name != 'id' and hasattr(field,'verbose_name')]
+        fields_verbose = [field.verbose_name for field in self.model._meta.get_fields() if field.name != 'id' and hasattr(field,'verbose_name')]
+    
+        context = {'fields': fields,'fields_verbose':fields_verbose,'objects':objects,'tablename':self.tablename}
         return render(request,'table.html',context=context)
 
     def search_table(self,request):
@@ -51,10 +55,10 @@ class AsyncTable:
         cleaned_data = {key : value for key,value in form.data.items() if value != ''}
         objects = self.model.objects.filter(**cleaned_data)
 
-        fields = [field.name for field in self.model._meta.get_fields() if field.name != 'id']
-        # fields_verbose = [field.verbose_name for field in self.model._meta.get_fields() if field.name != 'id']
+        fields = [field.name for field in self.model._meta.get_fields() if field.name != 'id' and hasattr(field,'verbose_name')]
+        fields_verbose = [field.verbose_name for field in self.model._meta.get_fields() if field.name != 'id' and hasattr(field,'verbose_name')]
     
-        context = {'fields': fields,'fields_verbose':fields,'objects':objects,'tablename':self.tablename}
+        context = {'fields': fields,'fields_verbose':fields_verbose,'objects':objects,'tablename':self.tablename}
         return render(request,'table.html',context=context)
 
     
