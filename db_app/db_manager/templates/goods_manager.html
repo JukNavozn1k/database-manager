@@ -4,35 +4,11 @@
 
 <div class="justify-content-center good_table col-xl-12 col-lg-10 col-md-8 col-sm-10 mx-auto text-center form p-4"
      hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
-    <h1>Менаджер товаров</h1>
+    <h1>Менаджер</h1>
       <div id="table">
       </div>  
-      <form>
-      <div class="form-group">
-           <h4>Панель управления</h4>
-            {{good_form}}
-            <div class="py-3">
-                <button type="button" class="btn btn-outline-primary btn-lg"
-                        hx-post="{{request.path}}table/search/"
-                        hx-target="#table"
-                        hx-swap="innerHTML"
-                        hx-trigger="click"      
-                >🔎</button>
-                <button type="button" class="btn btn-outline-success btn-lg"
-                hx-post="{{request.path}}table/add/"
-                hx-target="#table"
-                hx-swap="innerHTML"
-                hx-trigger="click"
-                >⭐</button>
-
-                <button type="button" class="btn btn-outline-primary btn-lg"
-                hx-get="{{request.path}}table/"
-                hx-target="#table"
-                hx-swap="innerHTML"
-                hx-trigger="load, click"
-                >🔄</button>
-            </div>
-      </div>
+      <form hx-get="{{request.path}}form" hx-swap="innerHTML" hx-trigger="load">
+      
     </form>
      
       

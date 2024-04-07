@@ -11,6 +11,14 @@ from . import forms
     Very easy to add new endpoints, which can be convenient for asynchronous approach
 '''
 
+@require_http_methods(["GET"])
+def get_form(request):
+    form = forms.GoodForm()
+    
+    context = {'form' : form}
+    return render(request,'form.html',context=context)
+
+
 @require_http_methods(["GET","POST"])
 def get_table(request):
     objects = models.Good.objects.all()

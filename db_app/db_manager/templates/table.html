@@ -16,13 +16,13 @@
         {% endfor %}
         <td> 
           <button type="button" class="btn btn-outline-warning btn-sm"
-          hx-put="/goods/update/{{obj.id}}"
+          hx-put="{{obj.id}}"
           hx-swap="outerHTML"
           hx-target="closest tr"
           >✏️</button>
           
           <button type="button" class="btn btn-outline-danger btn-sm"
-          hx-delete="/goods/delete/{{obj.id}}"
+          hx-delete="{{request.path}}delete/{{obj.id}}"
           hx-swap="outerHTML"
           hx-target="closest tr"
           >🗑️</button></td>       
