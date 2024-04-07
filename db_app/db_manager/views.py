@@ -75,4 +75,4 @@ class GoodsManager(View):
     def get(self,request):   
         good_form = forms.GoodForm()
         context = {'good_form':good_form}
-        return render(request,'goods_manager.html',context=context)
+        return render(request,'manager.html',context=context)

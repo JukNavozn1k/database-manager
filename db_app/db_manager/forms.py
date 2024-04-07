@@ -6,11 +6,9 @@ class GoodForm(forms.ModelForm):
         model = models.Good
         exclude = []
         widgets = {
-            
             'name' : forms.TextInput(attrs={'class' : 'form-control','placeholder':'Название товара'}),
             'price' : forms.TextInput(attrs={'class' : 'form-control','placeholder':'Цена товара'}),
-            'category': forms.Select(attrs={'class' : 'form-select'})
-                   
+            'category': forms.Select(attrs={'class' : 'form-select'})         
         }
         labels = {
             'name' : 'Название',
