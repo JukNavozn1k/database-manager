@@ -16,9 +16,10 @@
         {% endfor %}
         <td> 
           <button type="button" class="btn btn-outline-warning btn-sm"
-          hx-put="/{{tablename}}/update/{{obj.id}}"
-          hx-swap="outerHTML"
-          hx-target="closest tr"
+          hx-get="/{{tablename}}/edit_modal/{{obj.id}}"
+          hx-swap="innerHTML"
+          hx-target="#modal_container"
+          data-bs-toggle="modal" data-bs-target="#db_modal"
           >✏️</button>
           
           <button type="button" class="btn btn-outline-danger btn-sm"
