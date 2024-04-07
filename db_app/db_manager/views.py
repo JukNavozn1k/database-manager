@@ -11,13 +11,19 @@ from django.urls import path
    Creates table (CRUD)
 '''
 
+
+
 class AsyncTable:
     def __init__(self,model,form,tablename) -> None:
         self.model = model
         self.form = form
         self.tablename = tablename
         pass
-   
+
+    def get_attribute(self,obj, attr):
+        try:
+            return getattr(obj, attr)
+        except: return None
     def gen_urls(self) -> list:
         urls = [path(f'{self.tablename}/table/',self.get_table),
                 path(f'{self.tablename}/form/',self.get_form),
@@ -34,11 +40,10 @@ class AsyncTable:
 
     def get_table(self,request):
         objects = self.model.objects.all()
-
         fields = [field.name for field in self.model._meta.get_fields() if field.name != 'id']
-        fields_verbose = [field.verbose_name for field in self.model._meta.get_fields() if field.name != 'id']
-
-        context = {'fields': fields,'fields_verbose':fields_verbose,'objects':objects,'tablename':self.tablename}
+        # fields_verbose = [field.verbose_name for field in self.model._meta.get_fields() if field.name != 'id']
+        print(type(objects[0]))
+        context = {'fields': fields,'fields_verbose':fields,'objects':objects,'tablename':self.tablename}
         return render(request,'table.html',context=context)
 
     def search_table(self,request):
@@ -47,9 +52,9 @@ class AsyncTable:
         objects = self.model.objects.filter(**cleaned_data)
 
         fields = [field.name for field in self.model._meta.get_fields() if field.name != 'id']
-        fields_verbose = [field.verbose_name for field in self.model._meta.get_fields() if field.name != 'id']
+        # fields_verbose = [field.verbose_name for field in self.model._meta.get_fields() if field.name != 'id']
     
-        context = {'fields': fields,'fields_verbose':fields_verbose,'objects':objects,'tablename':self.tablename}
+        context = {'fields': fields,'fields_verbose':fields,'objects':objects,'tablename':self.tablename}
         return render(request,'table.html',context=context)
 
     
@@ -81,8 +86,9 @@ class Home(View):
     def get(self,request):   
         return render(request,'index.html')
 
-class GoodsManager(View):
+class Manager(View):
     def get(self,request):   
         return render(request,'manager.html')
 
 GoodsTable = AsyncTable(models.Good,forms.GoodForm,'goods')
+CategoryTable = AsyncTable(models.Category,forms.CategoryForm,'category')

@@ -15,3 +15,14 @@ class GoodForm(forms.ModelForm):
             'price' : 'Цена',
             'category' : 'Категория',
         }
+
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = models.Category
+        exclude = []
+        widgets = {
+            'name' : forms.TextInput(attrs={'class' : 'form-control','placeholder':'Название категории'}),
+        }
+        labels = {
+            'name' : 'Название',
+        }
