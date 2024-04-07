@@ -10,7 +10,7 @@
     </thead>
     <tbody>
       {% for obj in objects %}
-      <tr>
+      <tr id="obj_{{obj.id}}">
         {% for field in fields %}
         <td>{{ obj|get_attr:field }}</td>
         {% endfor %}
@@ -22,9 +22,10 @@
           >✏️</button>
           
           <button type="button" class="btn btn-outline-danger btn-sm"
-          hx-delete="/{{tablename}}/delete/{{obj.id}}"
-          hx-swap="outerHTML"
-          hx-target="closest tr"
+          hx-get="/{{tablename}}/delete_modal/{{obj.id}}"
+          hx-swap="innerHTML"
+          hx-target="#modal_container"
+          data-bs-toggle="modal" data-bs-target="#db_modal"
           >🗑️</button></td>       
       </tr>
       {% endfor %}

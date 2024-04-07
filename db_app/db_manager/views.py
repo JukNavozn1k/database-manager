@@ -26,7 +26,7 @@ class AsyncTable:
         urls = [path(f'{self.tablename}/table/',self.get_table),
                 path(f'{self.tablename}/form/',self.get_form),
                 path(f'{self.tablename}/add/',self.add_record),
-                path(f'{self.tablename}/delete_model/<int:id>/',self.get_delete_model),
+                path(f'{self.tablename}/delete_modal/<int:id>/',self.get_delete_modal),
                 path(f'{self.tablename}/delete/<int:id>/',self.delete_record),
                 path(f'{self.tablename}/search/',self.search_table),]
         return urls
@@ -46,7 +46,7 @@ class AsyncTable:
         context = {'fields': fields,'fields_verbose':fields_verbose,'objects':objects,'tablename':self.tablename}
         return render(request,'table.html',context=context)
     
-    def get_delete_model(self,request,id):
+    def get_delete_modal(self,request,id):
         context = {'tablename': self.tablename,'obj_id':id}
         return render(request,'modal_delete.html',context=context)
 
