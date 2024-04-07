@@ -84,10 +84,12 @@ class AsyncTable:
 '''
 class Home(View):
     def get(self,request):   
-        return render(request,'index.html')
+        context = {'form':forms.GoodForm()}
+        return render(request,'index.html',context=context)
 
 class Manager(View):
     def get(self,request):   
+        
         return render(request,'manager.html')
 
 GoodsTable = AsyncTable(models.Good,forms.GoodForm,'goods')

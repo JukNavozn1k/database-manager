@@ -30,19 +30,19 @@
       <a href="https://github.com/JukNavozn1k/DBLW5"><p>Официальная страница на GitHub</a></p>
     </main>
     
-      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Кнопка удаления
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+      Кнопка для удаления
     </button>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Удалить запись</h5>
+                    <h5 class="modal-title" id="deleteModalLabel">Удалить запись</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Вы уверены в том, что хотите удалить данную запись? Это действие нельзя будет отменить. 
+                    Вы уверены в том, что хотите удалить данную запись? 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger">Удалить</button>
@@ -51,6 +51,31 @@
             </div>
         </div>
     </div>
+
+    <br> <br>
+
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">
+      Кнопка для редактирования
+    </button>
+
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="editModalLabel">Редактировать запись</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  {{form}}
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary">Редактировать</button>
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+              </div>
+          </div>
+      </div>
+  </div>
+    
     {% endblock %}
   </div>
 </body>
