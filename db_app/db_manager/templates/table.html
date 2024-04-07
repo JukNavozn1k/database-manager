@@ -15,14 +15,14 @@
         <td>{{ obj|get_attr:field }}</td>
         {% endfor %}
         <td> 
-          <button type="button" class="btn btn-outline-warning btn-sm"
+          <button type="button" class="btn btn-warning btn-sm"
           hx-get="/{{tablename}}/edit_modal/{{obj.id}}"
           hx-swap="innerHTML"
           hx-target="#modal_container"
           data-bs-toggle="modal" data-bs-target="#db_modal"
           >✏️</button>
           
-          <button type="button" class="btn btn-outline-danger btn-sm"
+          <button type="button" class="btn btn-danger btn-sm"
           hx-get="/{{tablename}}/delete_modal/{{obj.id}}"
           hx-swap="innerHTML"
           hx-target="#modal_container"

@@ -18,7 +18,4 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path('',views.Home.as_view()),
-    path('categories/',views.Manager.as_view()),
-    path('goods/',views.Manager.as_view()),
-    path('customers/',views.Manager.as_view()),
 ] + views.GoodsTable.gen_urls() + views.CategoryTable.gen_urls() + views.CustomerTable.gen_urls()

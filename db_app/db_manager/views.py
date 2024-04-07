@@ -18,7 +18,8 @@ class AsyncTable:
         self.tablename = tablename
 
     def gen_urls(self) -> list:
-        urls = [path(f'{self.tablename}/table/',self.get_table),
+        urls = [path(f'{self.tablename}/',self.get_manager),
+                path(f'{self.tablename}/table/',self.get_table),
                 path(f'{self.tablename}/form/',self.get_form),
                 path(f'{self.tablename}/add/',self.add_record),
                 path(f'{self.tablename}/delete_modal/<int:id>/',self.get_delete_modal),
@@ -27,6 +28,11 @@ class AsyncTable:
                 path(f'{self.tablename}/delete/<int:id>/',self.delete_record),
                 path(f'{self.tablename}/search/',self.search_table),]
         return urls
+   
+   
+    def get_manager(self,request):
+        return render(request,'manager.html')
+
     def get_form(self,request):
         form = self.form()
  
@@ -108,9 +114,6 @@ class Home(View):
         context = {'form':forms.GoodForm()}
         return render(request,'index.html',context=context)
 
-class Manager(View):
-    def get(self,request):   
-        return render(request,'manager.html')
 
 GoodsTable = AsyncTable(models.Good,forms.GoodForm,'goods')
 CategoryTable = AsyncTable(models.Category,forms.CategoryForm,'categories')
