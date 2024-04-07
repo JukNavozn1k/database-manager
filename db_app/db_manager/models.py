@@ -9,6 +9,11 @@ class PositiveFloatValidator(MinValueValidator):
 
 class Category(models.Model):
       name = models.CharField(max_length=128,verbose_name='Название')
+
+      class Meta:
+           verbose_name = 'Категория'
+           verbose_name_plural = 'Категории'
+
       def __str__(self) -> str:
            return self.name
 # Create your models here.
@@ -18,5 +23,8 @@ class Good(models.Model):
 
       category = models.ForeignKey('Category',on_delete=models.SET_NULL,null=True,verbose_name='Категория')
 
+      class Meta:
+           verbose_name = 'Товар'
+           verbose_name_plural = 'Товары'  
       def __str__(self) -> str:
            return self.name
