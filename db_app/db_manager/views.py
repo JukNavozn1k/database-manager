@@ -25,7 +25,7 @@ class AsyncTable:
                 path(f'{self.tablename}/add/',self.add_record),
                 path(f'{self.tablename}/delete_modal/<int:id>/',self.get_delete_modal),
                 path(f'{self.tablename}/edit_modal/<int:id>/',self.get_edit_modal),
-                path(f'{self.tablename}/edit/',self.edit_record),
+                path(f'{self.tablename}/edit/<int:id>',self.edit_record),
                 path(f'{self.tablename}/delete/<int:id>/',self.delete_record),
                 path(f'{self.tablename}/search/',self.search_table),]
         return urls
@@ -55,9 +55,8 @@ class AsyncTable:
         context = {'tablename': self.tablename,'obj_id':id,'form':form}
         return render(request,'modal_edit.html',context=context)
     
-    def edit_record(self,request):
-        print(request.POST)
-        form = self.form(request.POST)
+    def edit_record(self,request,id):
+        form = self.form(request.POST, instance=self.model.objects.get(id=id))
         if form.is_valid():
             form.save()
             return self.get_table(request)
