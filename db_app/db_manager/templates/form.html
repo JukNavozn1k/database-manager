@@ -2,20 +2,20 @@
     <h4>Панель управления</h4>
      {{form}}
      <div class="py-3">
-         <button type="button" class="btn btn-outline-primary btn-lg"
+         <button type="button" class="btn btn-outline-primary"
                  hx-post="/{{tablename}}/search/"
                  hx-target="#table"
                  hx-swap="innerHTML"
                  hx-trigger="click"      
          >🔎</button>
-         <button type="button" class="btn btn-outline-success btn-lg"
+         <button type="button" class="btn btn-outline-success"
          hx-post="/{{tablename}}/add/"
          hx-target="#table"
          hx-swap="innerHTML"
          hx-trigger="click"
          >⭐</button>
 
-         <button type="button" class="btn btn-outline-primary btn-lg"
+         <button type="button" class="btn btn-outline-primary"
          hx-get="/{{tablename}}/table/"
          hx-target="#table"
          hx-swap="innerHTML"

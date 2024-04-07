@@ -5,6 +5,6 @@ register = template.Library()
 
 @register.filter(name='get_attr')
 def get_attribute(obj, attr):
-    try:
+    if hasattr(obj,attr):
         return getattr(obj, attr)
-    except: return None
+    else: return None

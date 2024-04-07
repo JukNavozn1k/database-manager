@@ -18,7 +18,7 @@
   </header>
 
 <body>
-   <div class="container">
+   <div class="container" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     {% block content %} 
     
     
@@ -29,6 +29,7 @@
       <p class="lead">Данное приложение позволяет управлять базой данных с помощью веб-интерфейса</p>
       <a href="https://github.com/JukNavozn1k/DBLW5"><p>Официальная страница на GitHub</a></p>
     </main>
+    
     
     {% endblock %}
   </div>

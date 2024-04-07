@@ -1,0 +1,22 @@
+<!-- <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">
+    Кнопка для редактирования
+  </button> -->
+
+  <div class="modal-header">
+    <h5 class="modal-title" id="editModalLabel" >Редактировать запись</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<form>
+<div class="modal-body">
+    {{form}}
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" 
+            hx-post="/{{tablename}}/edit/{{obj_id}}"
+            hx-swap="innerHTML"
+            hx-target="#table"
+            data-bs-toggle="modal" data-bs-target="#db_modal"
+            data-bs-dismiss="modal">Редактировать</button>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+</div>
+</form>

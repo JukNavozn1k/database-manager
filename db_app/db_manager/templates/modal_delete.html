@@ -1,0 +1,21 @@
+<!-- <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+    Кнопка для удаления
+  </button> -->
+
+
+  <div class="modal-header">
+    <h5 class="modal-title" id="deleteModalLabel">Удалить запись</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+    Вы уверены в том, что хотите удалить данную запись? 
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-danger"
+    hx-delete="/{{tablename}}/delete/{{obj_id}}"
+    hx-swap="outerHTML"
+    hx-target="#obj_{{obj_id}}"
+    data-bs-toggle="modal" data-bs-target="#db_modal"
+    >Удалить</button>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+</div>
