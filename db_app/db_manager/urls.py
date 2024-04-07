@@ -20,4 +20,5 @@ urlpatterns = [
     path('',views.Home.as_view()),
     path('category/',views.Manager.as_view()),
     path('goods/',views.Manager.as_view()),
-] + views.GoodsTable.gen_urls() + views.CategoryTable.gen_urls()
+    path('customers/',views.Manager.as_view()),
+] + views.GoodsTable.gen_urls() + views.CategoryTable.gen_urls() + views.CustomerTable.gen_urls()

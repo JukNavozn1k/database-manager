@@ -6,8 +6,8 @@ class GoodForm(forms.ModelForm):
         model = models.Good
         exclude = []
         widgets = {
-            'name' : forms.TextInput(attrs={'class' : 'form-control','placeholder':'Название товара'}),
-            'price' : forms.TextInput(attrs={'class' : 'form-control','placeholder':'Цена товара'}),
+            'name' : forms.TextInput(attrs={'class' : 'form-control','placeholder':'Игровой компьютер'}),
+            'price' : forms.TextInput(attrs={'class' : 'form-control','placeholder':'10000000000 рублей'}),
             'category': forms.Select(attrs={'class' : 'form-select'})         
         }
         labels = {
@@ -21,8 +21,21 @@ class CategoryForm(forms.ModelForm):
         model = models.Category
         exclude = []
         widgets = {
-            'name' : forms.TextInput(attrs={'class' : 'form-control','placeholder':'Название категории'}),
+            'name' : forms.TextInput(attrs={'class' : 'form-control','placeholder':'Быстрое питание...'}),
         }
         labels = {
             'name' : 'Название',
+        }
+
+class CustomerForm(forms.ModelForm):
+    class Meta:
+        model = models.Customer
+        exclude = []
+        widgets = {
+            'first_name' : forms.TextInput(attrs={'class' : 'form-control','placeholder':'Иван'}),
+            'last_name' : forms.TextInput(attrs={'class' : 'form-control','placeholder':'Петров'}),
+        }
+        labels = {
+            'first_name' : 'Имя',
+            'last_name' : 'Фамилия',
         }

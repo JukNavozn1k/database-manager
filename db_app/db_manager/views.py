@@ -11,8 +11,6 @@ from django.urls import path
    Creates table (CRUD)
 '''
 
-
-
 class AsyncTable:
     def __init__(self,model,form,tablename) -> None:
         self.model = model
@@ -112,8 +110,8 @@ class Home(View):
 
 class Manager(View):
     def get(self,request):   
-        
         return render(request,'manager.html')
 
 GoodsTable = AsyncTable(models.Good,forms.GoodForm,'goods')
-CategoryTable = AsyncTable(models.Category,forms.CategoryForm,'category')
+CategoryTable = AsyncTable(models.Category,forms.CategoryForm,'categories')
+CustomerTable = AsyncTable(models.Customer,forms.CustomerForm,'customers')

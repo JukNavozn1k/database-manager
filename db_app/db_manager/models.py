@@ -16,7 +16,6 @@ class Category(models.Model):
 
       def __str__(self) -> str:
            return self.name
-# Create your models here.
 class Good(models.Model):
       name = models.CharField(max_length=128,verbose_name='Название')
       price = models.FloatField(validators=[PositiveFloatValidator()],verbose_name='Цена')
@@ -28,3 +27,12 @@ class Good(models.Model):
            verbose_name_plural = 'Товары'  
       def __str__(self) -> str:
            return self.name
+
+class Customer(models.Model):
+      first_name = models.CharField(max_length=32,verbose_name='Имя')
+      last_name = models.CharField(max_length=32,verbose_name='Фамилия')
+      class Meta:
+           verbose_name = 'Покупатель'
+           verbose_name_plural = 'Покупатели'  
+      def __str__(self) -> str:
+           return f'{self.first_name} {self.last_name}'
