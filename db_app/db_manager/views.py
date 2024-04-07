@@ -23,10 +23,6 @@ class AsyncTable:
         self.tablename = tablename
         pass
 
-    def get_attribute(self,obj, attr):
-        try:
-            return getattr(obj, attr)
-        except: return None
     def gen_urls(self) -> list:
         urls = [path(f'{self.tablename}/table/',self.get_table),
                 path(f'{self.tablename}/form/',self.get_form),
