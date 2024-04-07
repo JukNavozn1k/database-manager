@@ -6,9 +6,9 @@ from django.views import View
 from . import models
 from . import forms
 
+from django.urls import path
 '''
-    Poor code structure
-    Very easy to add new endpoints, which can be convenient for asynchronous approach
+   Creates table (CRUD)
 '''
 
 class AsyncTable:
@@ -18,6 +18,13 @@ class AsyncTable:
         self.tablename = tablename
         pass
    
+    def gen_urls(self) -> list:
+        urls = [path(f'{self.tablename}/table/',self.get_table),
+                path(f'{self.tablename}/form/',self.get_form),
+                path(f'{self.tablename}/add/',self.add_record),
+                path(f'{self.tablename}/delete/<int:id>/',self.delete_record),
+                path(f'{self.tablename}/search/',self.search_table),]
+        return urls
     def get_form(self,request):
         form = self.form()
  
@@ -64,8 +71,6 @@ class AsyncTable:
             <p class="mb-0">{object_form.errors}</p>
             </div>
             ''')
-
-
 
 '''
     Sync handlers
