@@ -118,3 +118,4 @@ class Home(View):
 GoodsTable = AsyncTable(models.Good,forms.GoodForm,'goods')
 CategoryTable = AsyncTable(models.Category,forms.CategoryForm,'categories')
 CustomerTable = AsyncTable(models.Customer,forms.CustomerForm,'customers')
+PurchaseTable = AsyncTable(models.Purchase,forms.PurchaseForm,'purchases')

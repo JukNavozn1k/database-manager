@@ -18,4 +18,4 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path('',views.Home.as_view()),
-] + views.GoodsTable.gen_urls() + views.CategoryTable.gen_urls() + views.CustomerTable.gen_urls()
+] + views.GoodsTable.gen_urls() + views.CategoryTable.gen_urls() + views.CustomerTable.gen_urls() + views.PurchaseTable.gen_urls()

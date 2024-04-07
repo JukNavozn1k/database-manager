@@ -36,3 +36,13 @@ class Customer(models.Model):
            verbose_name_plural = 'Покупатели'  
       def __str__(self) -> str:
            return f'{self.first_name} {self.last_name}'
+
+class Purchase(models.Model):
+      customer = models.ForeignKey('Customer',on_delete=models.SET_NULL,null=True,verbose_name='Покупатель')
+      good = models.ForeignKey('Good',on_delete=models.SET_NULL,null=True,verbose_name='Товар')
+      
+      class Meta:
+           verbose_name = 'Покупка'
+           verbose_name_plural = 'Покупки'  
+      def __str__(self) -> str:
+           return f'{self.first_name} {self.last_name}'

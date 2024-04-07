@@ -39,3 +39,17 @@ class CustomerForm(forms.ModelForm):
             'first_name' : 'Имя',
             'last_name' : 'Фамилия',
         }
+
+class PurchaseForm(forms.ModelForm):
+    class Meta:
+        model = models.Purchase
+        exclude = []
+        widgets = {
+            'customer': forms.Select(attrs={'class' : 'form-select'}),
+            'good': forms.Select(attrs={'class' : 'form-select'}),     
+        }
+        labels = {
+            'customer' : 'Покупатель',
+            'good' : 'Товар',
+        
+        }
