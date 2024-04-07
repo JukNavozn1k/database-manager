@@ -11,12 +11,14 @@ from . import forms
     Very easy to add new endpoints, which can be convenient for asynchronous approach
 '''
 
-@require_http_methods(["GET", "POST"])
+@require_http_methods(["GET"])
 def get_table(request):
     goods = models.Good.objects.all()
-    fields = [field.verbose_name for field in models.Good._meta.get_fields() if field.name != 'id']
 
-    context = {'fields':fields,'goods':goods}
+    fields = [field.name for field in models.Good._meta.get_fields() if field.name != 'id']
+    fields_verbose = [field.verbose_name for field in models.Good._meta.get_fields() if field.name != 'id']
+  
+    context = {'fields': fields,'fields_verbose':fields_verbose,'goods':goods}
     return render(request,'goods_table.html',context=context)
 
 @require_http_methods(["POST"])
@@ -25,8 +27,10 @@ def search_table(request):
     cleaned_data = {key : value for key,value in form.data.items() if value != ''}
     goods = models.Good.objects.filter(**cleaned_data)
 
-    fields = [field.verbose_name for field in models.Good._meta.get_fields() if field.name != 'id']
-    context = {'fields':fields,'goods':goods}
+    fields = [field.name for field in models.Good._meta.get_fields() if field.name != 'id']
+    fields_verbose = [field.verbose_name for field in models.Good._meta.get_fields() if field.name != 'id']
+  
+    context = {'fields': fields,'fields_verbose':fields_verbose,'goods':goods}
     return render(request,'goods_table.html',context=context)
 
 @require_http_methods(["DELETE"])

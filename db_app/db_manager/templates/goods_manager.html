@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="justify-content-center good_table col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4"
+<div class="justify-content-center good_table col-xl-12 col-lg-10 col-md-8 col-sm-10 mx-auto text-center form p-4"
      hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     <h1>Менаджер товаров</h1>
       <div id="goods_table">
@@ -13,20 +13,20 @@
            <h4>Панель управления</h4>
             {{good_form}}
             <div class="py-3">
-                <button type="button" class="btn btn-outline-primary"
+                <button type="button" class="btn btn-outline-primary btn-lg"
                         hx-post="/goods/search/"
                         hx-target="#goods_table"
                         hx-swap="innerHTML"
                         hx-trigger="click"      
                 >🔎</button>
-                <button type="button" class="btn btn-outline-success"
+                <button type="button" class="btn btn-outline-success btn-lg"
                 hx-post="/goods/add/"
                 hx-target="#goods_table"
                 hx-swap="innerHTML"
                 hx-trigger="click"
                 >⭐</button>
 
-                <button type="button" class="btn btn-outline-primary"
+                <button type="button" class="btn btn-outline-primary btn-lg"
                 hx-get="/goods/refresh/"
                 hx-target="#goods_table"
                 hx-swap="innerHTML"
@@ -37,6 +37,28 @@
     </form>
      
       
+
+    <!-- Modal -->
+<div class="modal fade" id="delete_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Вы действительно хотите удалить эту запись?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Данное действие будет невозможно отметнить
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </div>
 
 {% endblock %}
