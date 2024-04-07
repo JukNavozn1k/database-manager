@@ -83,7 +83,6 @@ class Home(View):
 
 class GoodsManager(View):
     def get(self,request):   
-       
         return render(request,'manager.html')
 
 GoodsTable = AsyncTable(models.Good,forms.GoodForm,'goods')
