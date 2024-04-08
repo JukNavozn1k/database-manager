@@ -51,7 +51,7 @@ _To execute the following commands, you need to install python and pip_
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/JukNavozn1k/GlebTube
+   git clone https://github.com/JukNavozn1k/database-manager
    ```
 2. Install poetry via pip
    ```pip
