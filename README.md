@@ -71,5 +71,5 @@ _To execute the following commands, you need to install python and pip_
    ```
 6. Run server localy
    ```python
-   python manage.py makemigrations && python manage.py migrate
+   python manage.py runserver
    ```
